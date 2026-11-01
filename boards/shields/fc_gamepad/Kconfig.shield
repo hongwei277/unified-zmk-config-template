@@ -1,0 +1,3 @@
+config SHIELD_FC_GAMEPAD
+    bool "FC Gamepad Shield"
+    select KSCAN
