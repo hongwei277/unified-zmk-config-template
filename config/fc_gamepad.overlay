@@ -1,0 +1,37 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &transform0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios =
+            <&gpio0 17 GPIO_ACTIVE_LOW GPIO_PULL_UP>,  // A    D2 P0.17
+            <&gpio0 20 GPIO_ACTIVE_LOW GPIO_PULL_UP>,  // B    D3 P0.20
+            <&gpio0 22 GPIO_ACTIVE_LOW GPIO_PULL_UP>,  // Sel  D4 P0.22
+            <&gpio0 24 GPIO_ACTIVE_LOW GPIO_PULL_UP>,  // Sta  D5 P0.24
+            <&gpio1 0  GPIO_ACTIVE_LOW GPIO_PULL_UP>,  // Up   D6 P1.00
+            <&gpio0 11 GPIO_ACTIVE_LOW GPIO_PULL_UP>,  // Down D7 P0.11
+            <&gpio1 4  GPIO_ACTIVE_LOW GPIO_PULL_UP>,  // Left D8 P1.04
+            <&gpio1 6  GPIO_ACTIVE_LOW GPIO_PULL_UP>;  // Right D9 P1.06
+    };
+
+    transform0: matrix_transform {
+        compatible = "zmk,matrix-transform";
+        rows = <1>;
+        columns = <8>;
+        map = <
+            0 0
+            0 1
+            0 2
+            0 3
+            0 4
+            0 5
+            0 6
+            0 7
+        >;
+    };
+};

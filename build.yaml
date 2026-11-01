@@ -20,5 +20,6 @@
 ---
 include:
   - board: nice_nano_v2
+    cmake-args: -DZMK_CONFIG_NAME=fc_gamepad
 
 
